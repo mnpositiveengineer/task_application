@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"/>
+    <script src = "index.js" defer></script>
+    <script src="https://kit.fontawesome.com/3329b152ef.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid p-2" id="container">
+        <div class="row">
+            <div class="column col-sm-4 p-2" id="to_do">To do <button id = "addTaskButton" onclick = "addTask()">+</button></div>
+            <div class="column col-sm-4 p-2" id="in_progress">In Progress</div>
+            <div class="column col-sm-4 p-2" id="done">Done</div>
+        </div>
+        <form id="pop-up">
+            <div class="container-fluid m-2">
+                <div class="form-group ">
+                    <label for="title">Title<span style="color:red;"> *</span></label>
+                    <input class="form-control" id="title" type="text" pattern="[a-zA-Z0-9]+" onchange = "setChangeParameterToTrue()">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description<span style="color:red;"> *</span></label>
+                    <textarea class="form-control" id="description" rows="10" cols="50" pattern="[a-zA-Z0-9]+" onchange = "setChangeParameterToTrue()"></textarea>
+                </div>
+                <div class="form-group m-0">
+                    <label for="status">Status<span style="color:red;"> *</span></label>
+                    <select name = "status" id ="status" onchange = "setChangeParameterToTrue()"></select>
+                </div>
+                <div id = "savedNotification"></div>
+                <input type="button" value="Cancel" onclick = "cancelEditing()">
+                <input type="button" value="Save" onclick = "saveTask()">
+                <button id = "showCommentsButton" class="col-12 btn btn-default btn-sm m-2" onclick = "showComments()"><i class="fas fa-angle-down"></i> Show Comments</button>
+                <!-- <button id = "hideCommentsButton" class="col-12 btn btn-default btn-sm m-2" onclick = "hideComments()" disabled><i class="fas fa-angle-up"></i></i> Hide Comments</button>
+                <div id = "comments" class="form-group m-0">
+                    <label for="newComment" style="display: flex;">Add comment</label>
+                    <textarea class="form-control" id="newComment" rows="3" cols="50" pattern="[a-zA-Z0-9]+" onchange = "setChangeParameterToTrue()" disabled></textarea>
+                    <input type="button" value="Add" onclick = "addComment()" style="margin-top: 10px;" disabled>
+                </div> -->
+            </div>
+        </form>
+        <div id = "removingValidation">
+            <div class="container-fluid">
+                <h5>Confirm</h5>
+                <p>Do you want to remove the task?</p>
+                <input type="button" value="No" onclick = "cancelEditing()">
+                <input type="button" id = "confirmRemoving" value = "Yes">
+            </div>
+        </div>
+        <div id = "cancelingValidation">
+            <div class="container-fluid">
+                <h5>Confirm</h5>
+                <p>Do you want to cancel without saving? Updates will be lost.</p>
+                <input type="button" value="No" onclick = "returnToEditing()">
+                <input type="button" id = "confirmCanceling" value = "Yes" onclick = "confirmCancelation()">
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #bccad6;
+}
+
+#container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    text-align: center;
+    position: relative;
+}
+
+.column {
+    float: left;
+    min-height: 490px;
+    border: 1px solid black;
+}
+
+.column.inactive {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.taskCard {
+    border: 0.5px solid black;
+    height: 100px;
+    margin: 5px;
+    padding: 5px;
+}
+
+#pop-up {
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 40%;
+    min-height: 500px;
+    border: 0.5px solid black;
+    display: none;
+    background-color: #b7d7e8;
+    border-radius: 10px;
+}
+
+#pop-up.active {
+    display: flex;
+}
+
+#pop-up.inactive {
+    display: flex;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+#removingValidation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    min-height: 200px;
+    border: 0.5px solid black;
+    display: none;
+    background-color: #a2b9bc;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#removingValidation.active {
+    display: flex;
+}
+
+#cancelingValidation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    min-height: 200px;
+    border: 0.5px solid black;
+    display: none;
+    background-color: #a2b9bc;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#cancelingValidation.active {
+    display: flex;
+}
+
+#savedNotification {
+    margin-bottom: 10px;
+    color: green;
+}
+
+#showCommentsButton.inactive {
+    display: none;
+}
+
+#hideCommentsButton {
+    display: none;
+    pointer-events: none;
+}
+
+#hideCommentsButton.active {
+    display: inline;
+}
+
+#comments {
+    display: none;
+    pointer-events: none;
+}
+
+#comments.active {
+    display: inline;
+}
+
+button:focus {
+    outline: 2px solid green;
+}
+
+input:focus {
+    outline: 2px solid green;
+}
